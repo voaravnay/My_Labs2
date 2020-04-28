@@ -1,59 +1,56 @@
 #include <stdio.h>
 #include <math.h>
 #include <conio.h>
-
-
+#include <windows.h>
+#include <locale.h>
 
 int main(void) {
+	setlocale(LC_ALL, "RUS");
+
+	double array [10] = {7, 1, 3, 4, 1, 6, 7, 1, 1, 10};
 	
-	int array [] = {1, 2, 3, 4, 1, 6, 7, 1, 9, 10};
-	
-	int g = sizeof(array) / 4; 
-	//dlinna masiva
-	
-	for (int i = 0; i < g; i++) {
-		printf("%d ", array[i]);
+	for (int i = 0; i < 10; i++) {
+		printf("%lf ", array[i]);
 	}
-	
 	printf("\n");
 	
 	
+	
 	int sum = 0;
-	for (int i = 0; i < g; i++) {
+	for (int i = 0; i < 10; i++) {
 		sum += array[i];
-	}//summa vsex hisel massiva
+	}//сумма чисел массива
 	
 	
-	float sa = sum / g;
-	sa = (int)sa;
-	//srednee arfmetiheskoe massiva
+	double num = sum / 10;
 	
-	//====================================================================================================================//
-	int indexper = 0;
+	//среднее арифметическое массива
+	
+	int begin = 0;
 	int min = array[0];
-	for (int i = 0; i < g; i++) {
+	for (int i = 0; i < 10; i++) {
 		if (array[i] < min) {
-			indexper = i;
+			min = array[i];
+			begin = i;
 		}	
-	} // minimal`noe hislo massiva
+	} //минимальное число массива
 	
 	
-	int indexpos = 0;
-	for (int i = 0; i < g; i++) {
+	int end = 0;
+	for (int i = 0; i < 10; i++) {
 		if (array[i] <= min) {
-			indexpos = i;
+			end = i;
 		}
-	}//shitaem index povtornogo min hisla massiva s obratnoi storoni
+	}//индекс последнего числа которе повторяется
 	
-	//====================================================================================================================//
 	
-	array[indexper] = sa;
-	array[indexpos] = sa;
+	array[begin] = num;
+	array[end] = num;
 
 	
-	for (int i = 0; i < g; i++){
-		printf("%d ", array[i]);
-	}
+	for (int i = 0; i < 10; i++){
+		printf("%lf ", array[i]);
+	}//выводим измененный масив
 	
 	printf("\n");
 	int _getch();
