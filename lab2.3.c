@@ -39,21 +39,15 @@ int main(void) {
 	}//индекс последнего макс числа которе повторяется
 
 	array[end] = min; //  меняем последнее макс число на мин число
-
-	for (int i = 0; i < 10; i++) {
-		if (array[i] == max) {
-			array[i] = 0;
-		}
-	} //удаляем макс элементы
-
 	int arr1[10] = { 0 };
 	int j = 0;
 	for (int i = 0; i < 10; i++) {
-		if (array[i] != 0) {
+		if (array[i] != max) {
 			arr1[j] = array[i];
 			j++;
 		}
 	}
+
 
 	for (int i = 0; i < j; i++) {
 		printf("%d ", arr1[i]);
